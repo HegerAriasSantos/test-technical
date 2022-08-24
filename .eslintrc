@@ -1,0 +1,6 @@
+{
+  "parser": "@javascript-eslint/parser",
+  "extends": ["plugin:@javascript-eslint/recommended"],
+  "parserOptions": { "ecmaVersion": 2018, "sourceType": "module" },
+  "rules": {}
+}

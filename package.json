@@ -1,0 +1,34 @@
+{
+  "name": "heger-arias-santos-hegel.0218-2022-8-23-library-api-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "format": "eslint src/**/*.js --fix",
+    "dev": "nodemon src/index.js --exec babel-node",
+		"build": "babel src -d dist --source-maps"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pnpm lint"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/node": "^7.16.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+		"@babel/core": "^7.16.0",
+		"@babel/preset-env": "^7.16.4",
+		"babel-node": "0.0.1-security",
+    "dotenv": "^16.0.1",
+    "eslint": "^8.22.0",
+    "husky": "^8.0.1",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1"
+  }
+}
