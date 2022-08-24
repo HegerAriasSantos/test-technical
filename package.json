@@ -7,7 +7,7 @@
     "lint": "eslint src/**/*.js",
     "format": "eslint src/**/*.js --fix",
     "dev": "nodemon src/index.js --exec babel-node",
-		"build": "babel src -d dist --source-maps"
+    "build": "babel src -d dist --source-maps"
   },
   "husky": {
     "hooks": {
@@ -18,13 +18,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/node": "^7.16.0"
+    "@babel/node": "^7.16.0",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
-		"@babel/core": "^7.16.0",
-		"@babel/preset-env": "^7.16.4",
-		"babel-node": "0.0.1-security",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-node": "0.0.1-security",
     "dotenv": "^16.0.1",
     "eslint": "^8.22.0",
     "husky": "^8.0.1",
