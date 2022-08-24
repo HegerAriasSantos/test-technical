@@ -10,8 +10,8 @@ export default function (url) {
     format = path.substring(path.lastIndexOf('/') + 1, path.length);
     indexPage = path.substring(path.indexOf('p') + 5, path.indexOf('/', path.indexOf('p') + 5));
     indexBook = path.substring(6, path.indexOf('/', 7));
-    indexBook = Number(indexBook) - 1;
-    indexPage = Number(indexPage) - 1;
+    indexBook = Number(indexBook);
+    indexPage = Number(indexPage);
   }
   return { path, indexBook, indexPage, format };
 }

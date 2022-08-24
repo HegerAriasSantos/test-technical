@@ -1,22 +1,31 @@
-import db from '../database/Seeder.json';
 import { con } from '../database/db';
 function getAll() {
-  con.query('SELECT * FROM clients', function (err, result) {
-    if (err) throw err;
-    console.log(result[0]);
+  return new Promise((resolve, reject) => {
+    con.query('SELECT * FROM book', function (err, result) {
+      if (err) reject('Error');
+      resolve(result);
+    });
   });
-  // const data = db.books;
-  // return data;
 }
 
-function getPage(bookId, pageId) {
-  const data = db.books_Content[bookId].pages[pageId].content;
-  return data;
+function getPage(bookId, pageNumber) {
+  return new Promise((resolve, reject) => {
+    con.query(`SELECT * FROM page WHERE book_id = ${bookId} AND page_number = ${pageNumber}`, function (err, result) {
+      if (err) reject('Error');
+      console.log(result);
+      resolve(result);
+    });
+  });
 }
 
 function getBook(bookId) {
-  const data = db.books_Content[bookId];
-  return data;
+  return new Promise((resolve, reject) => {
+    con.query(`SELECT * FROM book where id = ${bookId}`, function (err, result) {
+      if (err) reject('Error');
+      console.log(result);
+      resolve(result);
+    });
+  });
 }
 
 export default {

@@ -1,55 +1,27 @@
+import createTemplate from '../lib/createTemplate';
 import Model from '../models/book';
 
 function getAll() {
   return new Promise((resolve, reject) => {
-    const data = Model.getAll();
-    if (data) return resolve(data);
-    return reject('Not Found');
+    Model.getAll()
+      .then((data) => resolve(data))
+      .catch((err) => reject(err));
   });
 }
 
-function getPage(bookId, pageId, format) {
+function getPage(bookId, pageNumber, format) {
   return new Promise((resolve, reject) => {
-    console.log(bookId, pageId, format);
-    const data = Model.getPage(bookId, pageId);
-    if (format === 'html') {
-      const templateHtml = `
-<!doctype html>
-<html>
-<head>
-		<title>Response!</title>
-</head>
-<body>
-		<p>${data}</p>
-</body>
-</html>`;
-
-      if (!data) {
-        return reject(`
-<!doctype html>
-<html>
-<head>
-		<title>Response!</title>
-</head>
-<body>
-		<p> Not Found</p>
-</body>
-</html>`);
-      }
-      return resolve(templateHtml);
-    }
-    if (format === 'txt') {
-      return resolve(data);
-    }
-    return reject('Not Found');
+    Model.getPage(bookId, pageNumber)
+      .then((data) => resolve(createTemplate(data, format)))
+      .catch((err) => reject(err));
   });
 }
 
 async function getBook(bookId) {
   return new Promise((resolve, reject) => {
-    const data = Model.getBook(bookId);
-    if (data) return resolve(data);
-    return reject('Not Found');
+    Model.getBook(bookId)
+      .then((data) => resolve(data))
+      .catch((err) => reject(err));
   });
 }
 
